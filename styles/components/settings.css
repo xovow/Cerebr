@@ -1,55 +1,26 @@
-/* 设置按钮和菜单样式 */
-#settings-button {
-    padding: 12px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--cerebr-icon-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#settings-button svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
-    opacity: 0.6;
-    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-                opacity 0.2s ease;
-}
-
-#settings-button:hover svg {
-    transform: scale(1.25);
-    opacity: 1;
-}
-
-#settings-button:active svg {
-    transform: scale(0.95);
-    opacity: 0.8;
-}
-
+/* 设置菜单固定在左侧 */
 #settings-menu {
-    position: absolute;
-    bottom: 100%;
-    left: 8px;
+    position: fixed;  /* 改为固定定位 */
+    top: 0;
+    left: 0;  /* 贴合左侧 */
+    height: 100%; /* 高度为 100% */
     background-color: var(--cerebr-bg-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 20px var(--cerebr-popup-shadow);
-    padding: 8px;
-    display: none;
-    min-width: 180px;
-    margin-bottom: 8px;
-    transform-origin: bottom left;
+    box-shadow: 4px 0 20px var(--cerebr-popup-shadow);
+    padding: 16px;
+    display: block; /* 直接显示菜单，不需要隐藏和切换 */
+    min-width: 200px; /* 设置一个最小宽度 */
+    z-index: 100;
+    transform-origin: top left;
     backdrop-filter: blur(var(--cerebr-blur-radius));
     -webkit-backdrop-filter: blur(var(--cerebr-blur-radius));
 }
 
-#settings-menu.visible {
-    display: block;
-    animation: menuAppear 0.2s ease;
+/* 去掉设置按钮，或者隐藏 */
+#settings-button {
+    display: none;  /* 隐藏设置按钮 */
 }
 
+/* 侧栏菜单项样式 */
 .menu-item {
     padding: 8px 12px;
     cursor: pointer;
@@ -65,7 +36,7 @@
     background-color: var(--cerebr-message-user-bg);
 }
 
-/* 开关样式 */
+/* 侧栏的开关样式 */
 .switch {
     position: relative;
     display: inline-block;
